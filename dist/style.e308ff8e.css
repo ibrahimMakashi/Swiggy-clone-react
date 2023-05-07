@@ -387,6 +387,7 @@ a {
   background-color: #171a29;
   padding: 0 100px;
   position: relative;
+  height: 340px;
 }
 
 .carousel-mid{
@@ -450,6 +451,53 @@ a {
 
 .carouselImg:hover{
   transform: scale(1.1);
+}
+
+/* carosel loader */
+
+.burger-img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+.burger{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  transform: translate(-50%, -50%);
+}
+
+.burger-loader{
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  border-top-color: transparent;
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 

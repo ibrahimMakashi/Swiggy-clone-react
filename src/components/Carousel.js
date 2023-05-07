@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CarouselCard from "./CarouselCard";
 import { CAROUSEL_URL } from "./Constants";
+import BurgerImage from "./BurgerImage";
 
 const Carousel = () => {
   const [carouselList, setCarouselList] = useState([]);
@@ -30,26 +31,31 @@ const Carousel = () => {
   console.log(carouselPosition);
   return (
     <div className="carousel-conatiner">
-      <div className="carousel-mid">
-        {showLeftBtn ? (
-          <button className="carousel-left" onClick={handleLeftClick}>
-            <i className="fa-solid fa-arrow-left arrow"></i>
-          </button>
-        ) : null}
-        {showRightBtn ? (
-          <button className="carousel-right" onClick={handleRightClick}>
-            <i className="fa-solid fa-arrow-right arrow"></i>
-          </button>
-        ) : null}
-        <div
-          className="carousel-inner"
-          style={{transform: `translateX(${carouselPosition}px)`}}
-        >
-          {carouselList.map((carousel) => (
-            <CarouselCard key={carousel.data.bannerId} carouselData={carousel}/>
-          ))}
-        </div>
+      {carouselList.length < 1 ? (
+        <>
+          <BurgerImage/>
+        </>
+      ):  <div className="carousel-mid">
+      {showLeftBtn ? (
+        <button className="carousel-left" onClick={handleLeftClick}>
+          <i className="fa-solid fa-arrow-left arrow"></i>
+        </button>
+      ) : null}
+      {showRightBtn ? (
+        <button className="carousel-right" onClick={handleRightClick}>
+          <i className="fa-solid fa-arrow-right arrow"></i>
+        </button>
+      ) : null}
+      <div
+        className="carousel-inner"
+        style={{transform: `translateX(${carouselPosition}px)`}}
+      >
+        {carouselList.map((carousel) => (
+          <CarouselCard key={carousel.data.bannerId} carouselData={carousel}/>
+        ))}
       </div>
+    </div>}
+     
     </div>
   );
 };

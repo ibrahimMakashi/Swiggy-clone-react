@@ -38911,7 +38911,45 @@ var CarouselCard = function CarouselCard(props) {
 };
 var _default = CarouselCard;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Constants":"src/components/Constants.js"}],"src/components/Carousel.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Constants":"src/components/Constants.js"}],"src/components/BurgerLoader.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var BurgerLoader = function BurgerLoader() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "burger-loader"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "spinner"
+  }));
+};
+var _default = BurgerLoader;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/components/BurgerImage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _BurgerLoader = _interopRequireDefault(require("./BurgerLoader"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var BurgerImage = function BurgerImage() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "burger-img"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    className: "burger",
+    src: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/icecream_wwomsa"
+  }), /*#__PURE__*/_react.default.createElement(_BurgerLoader.default, null));
+};
+var _default = BurgerImage;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./BurgerLoader":"src/components/BurgerLoader.js"}],"src/components/Carousel.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38921,6 +38959,7 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _CarouselCard = _interopRequireDefault(require("./CarouselCard"));
 var _Constants = require("./Constants");
+var _BurgerImage = _interopRequireDefault(require("./BurgerImage"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -38985,7 +39024,7 @@ var Carousel = function Carousel() {
   console.log(carouselPosition);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "carousel-conatiner"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, carouselList.length < 1 ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_BurgerImage.default, null)) : /*#__PURE__*/_react.default.createElement("div", {
     className: "carousel-mid"
   }, showLeftBtn ? /*#__PURE__*/_react.default.createElement("button", {
     className: "carousel-left",
@@ -39011,7 +39050,7 @@ var Carousel = function Carousel() {
 };
 var _default = Carousel;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./CarouselCard":"src/components/CarouselCard.js","./Constants":"src/components/Constants.js"}],"src/components/Body.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./CarouselCard":"src/components/CarouselCard.js","./Constants":"src/components/Constants.js","./BurgerImage":"src/components/BurgerImage.js"}],"src/components/Body.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39491,7 +39530,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57096" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58422" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
